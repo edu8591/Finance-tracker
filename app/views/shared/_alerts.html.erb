@@ -1,0 +1,7 @@
+
+<div class="alert alert-<%= flash.alert.nil? ? "success": "warning" %> alert-dismissible fade show" role="alert">
+  <%= flash.alert.nil? ? flash.notice : flash.alert %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
