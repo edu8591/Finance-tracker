@@ -9,6 +9,7 @@ gem 'devise'
 gem "devise-i18n"
 gem "devise-bootstrap5"
 gem 'iex-ruby-client'
+gem "font-awesome-rails"
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
