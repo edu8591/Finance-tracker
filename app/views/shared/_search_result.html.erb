@@ -1,5 +1,7 @@
-<div class="card card-header d-inline-block mt-2">
+<% if @stock %>
+  <div class="card card-header d-inline-block mt-2">
     <strong>Symbol: </strong> <%= @stock.ticker %>
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
   </div>
+<% end %>

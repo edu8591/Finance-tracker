@@ -2,7 +2,7 @@
 <div class="search-area">
   <h3>Search stocks</h3>
 
-  <%= form_tag search_stock_path, method: :get do %>
+  <%= form_tag search_stock_path, remote: true, method: :get do %>
     <div class="fomr-group row">
       <div class="col-sm-9 pe-0">
         <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
@@ -15,7 +15,5 @@
     </div>
   <% end %>
 </div>
-
-<% if @stock %>
-  <%= render 'shared/search_result' %>
-<% end %>
+<div id="results">
+</div>
