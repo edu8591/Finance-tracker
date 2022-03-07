@@ -1,5 +1,9 @@
+<div class="d-inline-block">
+  <%= render 'shared/alerts' %>
+</div>
+
 <% if @stock %>
-  <div class="card card-header d-inline-block mt-2">
+  <div class="card card-header d-inline-block">
     <strong>Symbol: </strong> <%= @stock.ticker %>
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>

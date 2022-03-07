@@ -8,13 +8,18 @@ class StocksController < ApplicationController
           format.js { render partial: 'shared/search_result' }
         end
       else
-        flash[:alert] = 'Please enter a valid symbol to search.'
-        render 'users/my_portfolio'
+        respond_to do |format|
+          flash.now[:alert] = 'Please enter a valid symbol to search.'
+          format.js { render partial: 'shared/search_result' }
+        end
+        # render 'users/my_portfolio'
       end
-
     else
-      flash[:alert] = 'Please enter a symbol to search.'
-      render 'users/my_portfolio'
+      respond_to do |format|
+        flash.now[:alert] = 'Please enter a symbol to search.'
+        format.js { render partial: 'shared/search_result' }
+      end
+      # render 'users/my_portfolio'
     end
   end
 end
