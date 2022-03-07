@@ -22,4 +22,5 @@ class StocksController < ApplicationController
       # render 'users/my_portfolio'
     end
   end
+
 end

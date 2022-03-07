@@ -20,4 +20,8 @@ class Stock < ApplicationRecord
       nil
     end
   end
+
+  def self.check_db(ticker)
+    find_by(ticker: ticker.upcase)
+  end
 end
