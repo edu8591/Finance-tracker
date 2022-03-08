@@ -1,4 +1,5 @@
 class UserStocksController < ApplicationController
+  before_action :set_user_stock, only: :destroy
 
   def create
     stock = Stock.check_db(params[:ticker]) || Stock.new_lookup(params[:ticker])
@@ -10,5 +11,16 @@ class UserStocksController < ApplicationController
       flash[:notice] = "Stock #{stock.name} was successfully added to your portfolio."
     end
     redirect_to my_portfolio_path
+  end
+
+  def destroy
+    @user_stock.destroy
+    flash[:notice] = "#{@user_stock.stock.ticker} was successfully removed from your portfolio."
+    redirect_to my_portfolio_path
+  end
+
+  private
+  def set_user_stock
+    @user_stock = UserStock.find_by(user: current_user, stock: params[:id])
   end
 end

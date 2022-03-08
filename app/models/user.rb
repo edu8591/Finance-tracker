@@ -13,9 +13,9 @@ class User < ApplicationRecord
 
   def stock_already_tracked?(ticker)
     stock = Stock.check_db(ticker)
-    return false unless stock || stocks.include?(stock)
+    return false unless stock
 
-    !!stock
+    stocks.where(id: stock.id).exists?
   end
 
   def can_track_stock?(ticker)
