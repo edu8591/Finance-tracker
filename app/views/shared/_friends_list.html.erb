@@ -1,0 +1,31 @@
+<% unless @friends.empty? %>
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope='col'>Email</th>
+            <th scope='col'>First Name</th>
+            <th scope='col'>Last Name</th>
+            <th scope='col'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @friends.each do |friend| %>
+            <tr>
+              <th scope="row" class="align-middle"><%= friend.email %></th>
+              <td class="align-middle"><%= friend.first_name || friend.full_name %></td>
+              <td class="align-middle"><%= friend.last_name || friend.full_name %></td>
+              <td class='d-flex justify-content-center'>
+                <%= link_to  friendship_path(friend), method: :delete, class:'btn btn-sm btn-danger text-white', data: {confirm: "Are you sure you want to remove this friend?"} do%>
+                  <%= fa_icon "trash"%>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
