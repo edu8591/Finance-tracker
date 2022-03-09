@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-10">
+    <% unless @friends.empty? %>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Actions</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <% @friends.each do |friend| %>
+            <tr>
+              <th scope="row"><%= friend.email %></th>
+              <td><%= friend.first_name || friend.full_name %></td>
+              <td><%= friend.first_name || friend.full_name %></td>
+              <td> <a href="#" class="btn btn-sm btn-danger text-white">remove action</a></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

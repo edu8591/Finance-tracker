@@ -12,7 +12,7 @@
             <%= link_to 'My Portfolio', my_portfolio_path, class:"nav-link #{'active' if request.path == my_portfolio_path}"%>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <%= link_to 'My Friends', friendships_path, class: "nav-link #{ 'active' if request.path == friendships_path}" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle <%= 'active' if request.path == edit_user_registration_path %>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,9 +30,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+
         </ul>
         <ul class='navbar-nav ms-auto'>
             <li class="nav-item nav-link active"><%= fa_icon 'user' %> <%= current_user.full_name %></li>
