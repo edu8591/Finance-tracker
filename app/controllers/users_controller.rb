@@ -6,4 +6,27 @@ class UsersController < ApplicationController
   def my_friends
     @friends = current_user.friends
   end
+
+  def search
+    if params[:query].present?
+      @friend = params[:query]
+      if @friend
+        respond_to do |format|
+          format.js { render partial: 'shared/friend_search_result' }
+        end
+      else
+        respond_to do |format|
+          flash.now[:alert] = 'We coudnt find any user with that name or email.`'
+          format.js { render partial: 'shared/friend_search_result' }
+        end
+        # render 'users/my_portfolio'
+      end
+    else
+      respond_to do |format|
+        flash.now[:alert] = 'Please enter a name or email to search.'
+        format.js { render partial: 'shared/friend_search_result' }
+      end
+      # render 'users/my_portfolio'
+    end
+  end
 end

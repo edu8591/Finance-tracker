@@ -1,0 +1,12 @@
+<div class="d-inline-block">
+  <%= render 'shared/alerts' %>
+</div>
+
+<% if @friend %>
+  <div class="card card-header d-inline-block mb-2">
+    <strong>first name: </strong> <%= @friend %>
+    <strong>last Name: </strong> <%= @friend %>
+    <strong>email: </strong> <%= @friend %>
+    <%= link_to 'Follow friend', '#', method: :post, class: 'btn btn-success text-white' %>
+  </div>
+<% end %>
