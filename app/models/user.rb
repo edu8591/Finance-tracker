@@ -25,6 +25,34 @@ class User < ApplicationRecord
   end
 
   def full_name
-    first_name || last_name ?  "#{first_name} #{last_name}" : "Anonymous"
+    first_name || last_name ?  "#{first_name} #{last_name}" : 'Anonymous'
+  end
+
+  def self.search(param)
+    param.strip!
+    to_return = first_name_matches(param) + last_name_matches(param) + email_matches(param)
+    return nil unless to_return
+
+    to_return.uniq
+  end
+
+  def self.matches(field_name, param)
+    where("#{field_name} like ?", "%#{param}%")
+  end
+
+  def self.first_name_matches(param)
+    matches('first_name', param)
+  end
+
+  def self.last_name_matches(param)
+    matches('last_name', param)
+  end
+
+  def self.email_matches(param)
+    matches('email', param)
+  end
+
+  def not_friends_with?(friend)
+    !self.friends.include? friend
   end
 end

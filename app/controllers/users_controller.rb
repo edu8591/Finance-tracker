@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def search
     if params[:query].present?
-      @friend = params[:query]
-      if @friend
+      @friends = User.search(params[:query])
+      if @friends
         respond_to do |format|
           format.js { render partial: 'shared/friend_search_result' }
         end
