@@ -19,6 +19,7 @@
   <div id="results" class="col-10">
   </div>
 </div>
+
 <% unless @tracked_stocks.empty? %>
-  <%= render 'shared/stocks_list' %>
+  <%= render 'shared/stocks_list', stocks: @tracked_stocks %>
 <% end %>

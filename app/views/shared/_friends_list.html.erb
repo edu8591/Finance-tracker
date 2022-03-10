@@ -17,8 +17,11 @@
               <td class="align-middle"><%= friend.first_name || friend.full_name %></td>
               <td class="align-middle"><%= friend.last_name || friend.full_name %></td>
               <td class='d-flex justify-content-center'>
-                <%= link_to  friendship_path(friend), method: :delete, class:'btn btn-sm btn-danger text-white', data: {confirm: "Are you sure you want to remove this friend?"} do%>
+                <%= link_to  friendship_path(friend), method: :delete, class:'btn btn-sm btn-danger text-white me-1', data: {confirm: "Are you sure you want to remove this friend?"} do%>
                   <%= fa_icon "trash"%>
+                <% end %>
+                <%= link_to user_path(friend), class:'btn btn-sm btn-success text-white ms-1' do %>
+                  <%= fa_icon 'eye' %>
                 <% end %>
               </td>
             </tr>
